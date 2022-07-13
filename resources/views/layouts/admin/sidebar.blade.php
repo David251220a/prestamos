@@ -12,10 +12,12 @@
         </li>
 
         <li class="menu">
-            <a href="{{ route('persona.index') }}" {{(Route::currentRouteName() == 'persona.index' ? 'data-active=true' : '')}} aria-expanded="false" class="dropdown-toggle">
+            <a href="{{ route('persona.index') }}" {{(substr(Route::currentRouteName() , 0 , strpos(Route::currentRouteName(), '.')) == 'persona' ? 'data-active=true' : '')}}
+                aria-expanded="false" class="dropdown-toggle">
                 <div class="">
                     <i class="fa-solid fa-user-group mr-3"></i>
-                    <span>Personas</span>
+                    <span>Personas </span>
+                    {{-- <span>Personas {{ substr(Route::currentRouteName() , 0 , strpos(Route::currentRouteName(), '.')) }} </span> --}}
                 </div>
             </a>
         </li>

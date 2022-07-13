@@ -16,12 +16,12 @@ class PersonaController extends Controller
 
     public function create()
     {
-        $nacionalidad = Nacionalidad::where('estado_id', 1)->get();
         return view('persona.create', compact('nacionalidad'));
     }
 
     public function store(Request $request)
     {
+        //dd($request->foto);
         $request->validate([
             'documento' => 'required',
             'nombre' => 'required',
@@ -38,6 +38,11 @@ class PersonaController extends Controller
         $celular = $request->celular;
         $linea_baja = $request->linea_baja;
         $email = $request->email;
+        $foto = '';
+        if($request->file('foto')){
+            $filePath = $request->file('foto')->store('public/personas');
+            $foto = $filePath;
+        }
 
         Persona::create([
             'documento' => $documento,
@@ -45,7 +50,7 @@ class PersonaController extends Controller
             'apellido' => $apellido,
             'fecha_nacimiento' => $fecha_nacimiento,
             'email' => $email,
-            'foto' => '',
+            'foto' => $foto,
             'direccion' => $direccion,
             'linea_baja' => $linea_baja,
             'celular' => $celular,
@@ -57,5 +62,10 @@ class PersonaController extends Controller
         ]);
 
         return redirect()->route('persona.index')->with('message', 'Se ha creado con exito la persona!.');
+    }
+
+    public function edit(Persona $persona)
+    {
+        return view('persona.edit', compact('persona'));
     }
 }

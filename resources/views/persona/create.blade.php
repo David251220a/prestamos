@@ -6,7 +6,7 @@
         <h4 class="fw-bold" style="font-weight: bold">Crear Persona</h4>
     </div>
 
-    <form action="{{route('persona.store')}}" method="POST" class="needs-validation" novalidate >
+    <form action="{{route('persona.store')}}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate >
         @csrf
 
         <div class="form-row">
@@ -14,7 +14,7 @@
                 <div class="avatar avatar-xl image-style-content text-center">
                     <img alt="avatar" id="avatar" src="{{asset('assets/img/foto.jpg')}}" class="rounded-circle" style="height: 125px; width: 125px" />
                     <a href="javascript:cambio()"><i class="fa-solid fa-camera"></i> Agregar foto</a>
-                    <input type="file" name="foto" id="foto" hidden>
+                    <input type="file" name="foto" id="foto" accept="image/*" hidden>
                 </div>
             </div>
         </div>
@@ -95,8 +95,7 @@
             @livewire('nacionalidad.nacionalidad-select')
         </div>
 
-
-        <button class="btn btn-primary mt-3" type="submit">Crear</button>
+        <button class="btn btn-primary" type="submit">Crear</button>
 
     </form>
 

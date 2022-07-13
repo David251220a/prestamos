@@ -77,8 +77,6 @@ function mostrarImagen(event) {
     var imagefile = document.querySelector('#foto');
     formData.append("foto", imagefile.files[0]);
 
-    var doc_v = event.target.files[0];
-
     var file = event.target.files[0];
     var reader = new FileReader();
     reader.onload = function(event) {

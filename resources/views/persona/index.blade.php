@@ -47,7 +47,7 @@
                                     <td class="text-center">
                                         <ul class="table-controls">
                                             <li>
-                                                <a href="javascript:void(0);" class="bs-tooltip" data-toggle="tooltip" data-placement="top"
+                                                <a href="{{route('persona.edit', $item)}}" class="bs-tooltip" data-toggle="tooltip" data-placement="top"
                                                 title="" data-original-title="Edit">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
