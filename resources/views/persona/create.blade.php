@@ -6,8 +6,32 @@
         <h4 class="fw-bold" style="font-weight: bold">Crear Persona</h4>
     </div>
 
-    <form class="needs-validation" novalidate action="javascript:void(0);">
+    <form action="{{route('persona.store')}}" method="POST" class="needs-validation" novalidate >
+        @csrf
+
         <div class="form-row">
+            <div class="col-md-12 mb-4">
+                <div class="avatar avatar-xl image-style-content text-center">
+                    <img alt="avatar" id="avatar" src="{{asset('assets/img/foto.jpg')}}" class="rounded-circle" style="height: 125px; width: 125px" />
+                    <a href="javascript:cambio()"><i class="fa-solid fa-camera"></i> Agregar foto</a>
+                    <input type="file" name="foto" id="foto" hidden>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-3 mb-4">
+                <label for="nombre">Documento</label>
+                <input type="text" class="form-control" id="documento" name="documento" placeholder="Documento"
+                onchange="puntos_decimal(this)" onkeyup="puntos_decimal(this)" required>
+                <div class="valid-feedback">
+                    Dato correcto!
+                </div>
+                <div class="invalid-feedback">
+                    Por favor complete su numero de documento.
+                </div>
+            </div>
+
             <div class="col-md-3 mb-4">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -18,6 +42,7 @@
                     Por favor complete su nombre.
                 </div>
             </div>
+
             <div class="col-md-3 mb-4">
                 <label for="apellido">Apellido</label>
                 <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
@@ -28,6 +53,7 @@
                     Por favor complete su apellido.
                 </div>
             </div>
+
             <div class="col-md-3 mb-4">
                 <label for="fecha_nacimiento">Fecha Nacimiento</label>
                 <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
@@ -43,8 +69,7 @@
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email">
             </div>
-        </div>
-        <div class="form-row">
+
             <div class="col-md-6 mb-4">
                 <label for="direccion">Dirección</label>
                 <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion" required>
@@ -52,14 +77,22 @@
                     Por favor complete la dirección.
                 </div>
             </div>
+
             <div class="col-md-3 mb-4">
                 <label for="celular">Celular</label>
                 <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
             </div>
+        </div>
+        <div class="form-row">
+
             <div class="col-md-3 mb-4">
                 <label for="celular">Linea baja</label>
                 <input type="text" class="form-control" id="linea_baja" name="linea_baja" placeholder="Linea Baja">
             </div>
+
+            @livewire('ciudad.ciudad-select')
+
+            @livewire('nacionalidad.nacionalidad-select')
         </div>
 
 
@@ -70,20 +103,8 @@
 @endsection
 
 @section('js')
-    <script>
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-            });
-        }, false);
-    </script>
+
+    <script src="{{asset('plugins/select2/select2.min.js')}}"></script>
+    <script src="{{asset('js/persona/create.js')}}"></script>
+    {{-- <script src="{{asset('plugins/select2/custom-select2.js')}}"></script> --}}
 @endsection

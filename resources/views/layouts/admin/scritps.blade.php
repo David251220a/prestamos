@@ -14,3 +14,5 @@
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{asset('plugins/table/datatable/datatables.js')}}"></script>
+<script src="{{asset('plugins/highlight/highlight.pack.js')}}"></script>
+<script src="{{asset('assets/js/scrollspyNav.js')}}"></script>
