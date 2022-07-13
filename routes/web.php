@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\PersonaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +22,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group([
+    'middleware' => 'auth',
+], function(){
+    Route::get('/home', [InicioController::class, 'index'])->name('home');
+    Route::resource('/personas', PersonaController::class)->names('persona');
+});
+
