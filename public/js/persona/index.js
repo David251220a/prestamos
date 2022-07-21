@@ -1,6 +1,8 @@
 window.addEventListener('load', function() {
-    var mensaje = document.getElementById('message').value;
-    if(mensaje != ''){
+    // if(document.getElementById('message').value != ''){
+        // console.log(document.getElementById('message'));
+        if(document.getElementById('message') != null){
+        var mensaje = document.getElementById('message').value;
         swal({
             title: 'Good job!',
             text: mensaje,

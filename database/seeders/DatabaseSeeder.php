@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             Estado::class,
             Ciudad::class,
             NacionalidadSeeder::class,
+            TipoPrestamoSeeder::class,
+            SolicitudEstadoSeeder::class,
         ]);
     }
 }

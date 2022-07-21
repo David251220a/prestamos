@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\SolicitudController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +30,6 @@ Route::group([
 ], function(){
     Route::get('/home', [InicioController::class, 'index'])->name('home');
     Route::resource('/personas', PersonaController::class)->names('persona');
+    Route::resource('/solicitud', SolicitudController::class)->names('solicitud');
 });
 

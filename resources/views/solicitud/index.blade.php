@@ -9,14 +9,13 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/forms/theme-checkbox-radio.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/custom_dt_custom.css')}}">
+    <link href="{{asset('assets/css/scrollspyNav.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
 
     <div class="mt-4 seperator-header">
-        <h4 class="fw-bold" style="font-weight: bold">Personas</h4>
-
-        <a class="btn btn-primary mb-2 mr-2 btn-rounded ml-4" href="{{route('persona.create')}}"><i class="fa-solid fa-user-plus mr-2"></i> Nuevo</a>
+        <h4 class="fw-bold" style="font-weight: bold">Solicitud <i class="fa-solid fa-hand-holding-dollar"></i></h4>
     </div>
 
     <div class="row layout-spacing">
@@ -32,7 +31,6 @@
                                 <th>Nombre</th>
                                 <th>Email</th>
                                 <th>Celular</th>
-                                <th class="text-center">Estado</th>
                                 <th class="text-center dt-no-sorting">Accion</th>
                             </tr>
                         </thead>
@@ -46,14 +44,11 @@
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->celular}}</td>
                                     <td class="text-center">
-                                        <span class="shadow-none badge badge-success">Activo</span>
-                                    </td>
-                                    <td class="text-center">
                                         <ul class="table-controls">
                                             <li>
-                                                <a href="{{route('persona.edit', $item)}}" class="bs-tooltip" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="Editar">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                <a href="{{route('solicitud.edit', $item)}}" class="bs-tooltip" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="Solicitar">
+                                                    <i class="fa-solid fa-hand-holding-dollar"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -75,3 +70,4 @@
     <script src="plugins/sweetalerts/custom-sweetalert.js"></script>
     <script src="{{asset('js/persona/index.js')}}"></script>
 @endsection
+

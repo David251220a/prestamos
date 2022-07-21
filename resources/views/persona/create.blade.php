@@ -1,5 +1,12 @@
 @extends('layouts.admin')
 
+@section('styles')
+    <link href="{{asset('assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('plugins/animate/animate.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/select2/select2.min.css')}}">
+    {{-- <link href="{{asset('plugins/loaders/custom-loader.css')}}" rel="stylesheet" type="text/css" /> --}}
+@endsection
+
 @section('content')
 
     <div class="mt-4 seperator-header">
@@ -95,7 +102,12 @@
             @livewire('nacionalidad.nacionalidad-select')
         </div>
 
-        <button class="btn btn-primary" type="submit">Crear</button>
+        <button class="btn btn-primary" type="submit" id="btn_submit">Crear</button>
+        <div style="display: none" id="exito">
+            <div class="spinner-border text-success align-self-center "></div>
+            <span class="ms-2 text-success">Procesando...</span>
+        </div>
+
 
     </form>
 

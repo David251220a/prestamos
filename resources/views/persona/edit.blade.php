@@ -1,12 +1,20 @@
 @extends('layouts.admin')
 
+@section('styles')
+    <link href="{{asset('assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('plugins/animate/animate.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/select2/select2.min.css')}}">
+    {{-- <link href="{{asset('plugins/loaders/custom-loader.css')}}" rel="stylesheet" type="text/css" /> --}}
+@endsection
+
 @section('content')
 
     <div class="mt-4 seperator-header">
         <h4 class="fw-bold" style="font-weight: bold">Editar Persona: {{ $persona->nombre }} {{ $persona->apellido }}</h4>
     </div>
 
-    <form action="{{route('persona.store')}}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate >
+    <form action="{{route('persona.update', $persona)}}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate >
+        @method('PUT')
         @csrf
 
         <div class="form-row">
@@ -80,7 +88,7 @@
 
             <div class="col-md-3 mb-4">
                 <label for="celular">Celular</label>
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" value="{{$persona->nombre}}">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" value="{{$persona->celular}}">
             </div>
         </div>
         <div class="form-row">
@@ -90,12 +98,16 @@
                 <input type="text" class="form-control" id="linea_baja" name="linea_baja" placeholder="Linea Baja">
             </div>
 
-            @livewire('ciudad.ciudad-select')
+            @livewire('ciudad.ciudad-select-edit', ['ciudad_id' => $persona->ciudad_id], key($persona->ciudad_id))
 
-            @livewire('nacionalidad.nacionalidad-select')
+            @livewire('nacionalidad.nacionalidad-select-edit', ['nacionalidad_id' => $persona->nacionalidad_id], key($persona->nacionalidad_id))
         </div>
 
-        <button class="btn btn-primary" type="submit">Crear</button>
+        <button class="btn btn-primary" type="submit" id="btn_submit">Actualizar</button>
+        <div style="display: none" id="exito">
+            <div class="spinner-border text-success align-self-center "></div>
+            <span class="ms-2 text-success text-center">Procesando...</span>
+        </div>
 
     </form>
 

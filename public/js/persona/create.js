@@ -5,6 +5,8 @@ avatar.addEventListener('change', mostrarImagen, false);
 function checkSubmit() {
     if (!enviando) {
         enviando= true;
+        // $('#btn_submit').css('display', 'none');
+        // $('#exito').css('display', 'block');
         return true;
     } else {
         return false;
@@ -33,6 +35,7 @@ window.addEventListener('load', function() {
         var ss = $(".basic").select2({
             tags: true,
         });
+        $('#mensaje').css('display', 'none');
     });
 
     window.livewire.on('ciudad-add', msj => {

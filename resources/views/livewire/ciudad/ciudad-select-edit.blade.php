@@ -1,8 +1,8 @@
 <div class="col-md-3 mb-4">
     <label for="ciudad" data-toggle="modal" data-target="#exampleModal">Ciudad</label>
-    <select class="form-control  basic" name="ciudad" id="ciudad">
+    <select class="form-control  basic" name="ciudad" id="ciudad" wire:model="ciudad_id">
         @foreach ($ciudad as $item)
-            <option value="{{$item->id}}">{{$item->descripcion}}</option>
+            <option {{( $ciudad_id == $item->id ? 'selected' : '' )}} value="{{$item->id}}">{{$item->descripcion}}</option>
         @endforeach
     </select>
 
@@ -15,7 +15,7 @@
                 <div class="modal-body">
                     <div class="col-md-12">
                         <label for="celular">Nombre Ciudad</label>
-                        <input type="text" wire:model.defer="descripcion" class="form-control" placeholder="Nombre Ciudad">
+                        <input type="text" wire:model.defer="descripcion" name="descripcion" class="form-control" placeholder="Nombre Ciudad">
                         @error('descripcion')
                             <span id="mensaje">
                                 <div class="alert alert-light-danger border-0 mb-4 mt-2" role="alert">
