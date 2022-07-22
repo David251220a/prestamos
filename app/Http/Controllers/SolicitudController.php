@@ -18,4 +18,10 @@ class SolicitudController extends Controller
         return view('solicitud.index', compact('personas'));
     }
 
+    public function edit(Persona $solicitud)
+    {
+        $persona = $solicitud;
+        return view('solicitud.edit', compact('persona'));
+    }
+
 }

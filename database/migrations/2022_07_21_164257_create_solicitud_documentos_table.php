@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prestamos', function (Blueprint $table) {
+        Schema::create('solicitud_documentos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('persona_id')->constrained();
-            $table->integer('anio');
-            $table->integer('numero_prestamo');
-            $table->foreignId('tipo_prestamo_id')->constrained();
-            $table->integer('plazo')->default(0);
-            $table->integer('tasa');
-            $table->decimal('monto', 12, 0)->default(0);
-            $table->foreignId('prestamo_estado_id')->constrained();
+            $table->foreignId('tipo_documento_id')->constrained();
             $table->foreignId('solicitud_id')->constrained();
+            $table->string('foto', 255);
             $table->foreignId('estado_id')->constrained();
             $table->foreignId('usuario_alta')->references('id')->on('users');
             $table->foreignId('usuario_modificacion')->references('id')->on('users');
@@ -38,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prestamos');
+        Schema::dropIfExists('solicitud_documentos');
     }
 };

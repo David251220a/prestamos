@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cobros', function (Blueprint $table) {
+        Schema::create('tipo_documentos', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion', 100);
+            $table->foreignId('estado_id')->constrained();
+            $table->foreignId('usuario_alta')->references('id')->on('users');
+            $table->foreignId('usuario_modificacion')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cobros');
+        Schema::dropIfExists('tipo_documentos');
     }
 };

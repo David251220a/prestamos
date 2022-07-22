@@ -1,4 +1,4 @@
-<div class="col-md-3 mb-4">
+<div class="col-md-4 mb-4">
     <label for="ciudad" data-toggle="modal" data-target="#exampleModal">Ciudad</label>
     <select class="form-control  basic" name="ciudad" id="ciudad" wire:model="ciudad_id">
         @foreach ($ciudad as $item)
