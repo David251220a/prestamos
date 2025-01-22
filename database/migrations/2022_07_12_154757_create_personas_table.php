@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('fecha_nacimiento');
             $table->string('email', 200)->nullable();
             $table->string('foto', 250)->nullable();
+            $table->string('cedula_frente', 250)->nullable();
+            $table->string('cedula_reverso', 250)->nullable();
             $table->string('direccion', 255);
             $table->string('celular', 20)->nullable();
             $table->string('linea_baja', 20)->nullable();

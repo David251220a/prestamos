@@ -10,4 +10,8 @@ class Persona extends Model
     use HasFactory;
 
     protected $guarded=[];
+
+    public function referente(){
+        return $this->hasMany(Referente::class, 'persona_id')->orderBy('id', 'ASC');
+    }
 }

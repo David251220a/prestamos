@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('cedula', 10);
             $table->string('nombre', 80);
             $table->string('apellido', 80);
-            $table->string('celular', 20);
-            $table->string('direccion', 200);
+            $table->string('celular', 20)->nullable();
+            $table->string('direccion', 200)->nullable();
             $table->foreignId('estado_id')->constrained();
             $table->foreignId('usuario_alta')->references('id')->on('users');
             $table->foreignId('usuario_modificacion')->references('id')->on('users');

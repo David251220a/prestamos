@@ -18,6 +18,10 @@
         <h4 class="fw-bold" style="font-weight: bold">Solicitud <i class="fa-solid fa-hand-holding-dollar"></i></h4>
     </div>
 
+    <div class="mt-2 mb-2">
+        <a href="{{ route('solicitud.create') }}" class="btn btn-primary text-white font-bold">Crear Solicitud</a>
+    </div>
+
     <div class="row layout-spacing">
         <div class="col-lg-12">
             <div class="statbox widget box box-shadow">

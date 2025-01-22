@@ -18,7 +18,9 @@
 
         @livewire('solicitud.persona-datos', ['persona' => $persona], key($persona->id))
 
-        @include('livewire.solicitud.persona-referente')
+        @livewire('solicitud.persona-referente', ['persona' => $persona], key($persona->id))
+
+        @livewire('solicitud.persona-solicitud', ['persona' => $persona], key($persona->id))
 
     </div>
 @endsection
@@ -26,7 +28,12 @@
 
 @section('js')
 
+    <script src="{{asset('plugins/input-mask/jquery.inputmask.bundle.min.js')}}"></script>
+    {{-- <script src="{{asset('plugins/input-mask/input-mask.js')}}"></script> --}}
     <script src="{{asset('plugins/select2/select2.min.js')}}"></script>
     <script src="{{asset('js/solicitud/create.js')}}"></script>
+    <script src="{{asset('plugins/bootstrap-maxlength/bootstrap-maxlength.js')}}"></script>
+    <script src="{{asset('plugins/bootstrap-maxlength/custom-bs-maxlength.js')}}"></script>
+
 
 @endsection

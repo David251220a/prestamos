@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('solicituds', function (Blueprint $table) {
             $table->id();
             $table->foreignId('persona_id')->constrained();
+            $table->foreignId('tipo_calculo_id')->constrained();
             $table->integer('anio');
             $table->integer('numero_solicitud');
             $table->foreignId('tipo_prestamo_id')->constrained();

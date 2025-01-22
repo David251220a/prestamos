@@ -9,6 +9,7 @@
         App.init();
     });
 </script>
+<script src="{{asset('js/general.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 

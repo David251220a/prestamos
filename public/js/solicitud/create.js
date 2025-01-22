@@ -1,5 +1,3 @@
-
-
 window.addEventListener('load', function() {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var ss = $(".basic").select2({
@@ -10,7 +8,7 @@ window.addEventListener('load', function() {
         var ss = $(".basic").select2({
             tags: true,
         });
-        $('#mensaje').css('display', 'none');
+        $('.mensaje').css('display', 'none');
     });
 
     window.livewire.on('ciudad-add', msj => {
@@ -24,6 +22,11 @@ window.addEventListener('load', function() {
         $('#referente').css('display', 'block');
     });
 
+    window.livewire.on('referente-up', msj => {
+        $('#solicitud').css('display', 'block');
+        // $('#referente').css('display', 'none');
+    });
+
 }, false);
 
 
@@ -31,16 +34,6 @@ function ver_referentes(){
     $('#referente').css('display', 'block');
 }
 
-function agregar_referente(){
-    // document.getElementById("referente_mas").append =
-    // '<div class="col-md-4 mb-4">\
-    //     <label for="nombre">Cedula</label>\
-    //     <input type="text" class="form-control" id="cedula" name="cedula" required>\
-    // </div>'
 
-    $('#referente_mas').append(
-        '<div class="col-md-4 mb-4">\
-        <label for="nombre">Cedula</label>\
-        <input type="text" class="form-control" id="cedula" name="cedula" required>\
-    </div>');
-}
+$(".ph-number").inputmask({mask:"(9999) 999-999"});
+$("#plazo").inputmask({mask:"99"});

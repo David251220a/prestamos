@@ -20,6 +20,13 @@ class Usuario extends Seeder
             'name' => 'Admin',
             'email' => 'admin@dev',
             'password' => Hash::make('admin123456'),
-        ]);
+        ])->assignRole('admin');
+
+        //  User::create([
+        //      'name' => 'Admin',
+        //      'documento' => '4918642',
+        //      'email' => 'admin@dev',
+        //      'password' => Hash::make('admin123456'),
+        //  ])->assignRole('admin');
     }
 }
